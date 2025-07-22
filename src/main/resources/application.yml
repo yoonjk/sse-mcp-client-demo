@@ -1,0 +1,27 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: sse-mcp-client-demo
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      model: llama3.2-korean
+      chat:
+        options:
+          model: llama3.2-korean
+    mcp:
+      client:
+        name: llm-mcp-client-demo
+        type: sync
+        rest-change-notification: true
+        request-timeout: 20s
+        initialized: true
+        enabled: true
+        callback:
+          enabled: true
+        sse:
+          connections:
+            mcp-server:
+              url: http://localhost:8080
+              sse-endpoint: /api/v1/sse
