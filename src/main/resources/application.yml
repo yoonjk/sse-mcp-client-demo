@@ -25,3 +25,6 @@ spring:
             mcp-server:
               url: http://localhost:8080
               sse-endpoint: /api/v1/sse
+            sse-mcp-server-demo2:
+              url: http://localhost:8081
+              sse-endpoint: /sse

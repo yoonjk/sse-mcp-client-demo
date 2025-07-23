@@ -44,9 +44,9 @@ public class SseMcpClientDemoApplication {
 //		};
 //	}
 
-	@Bean
-	@Qualifier("my-mcp-server-callback-tool-provider")
-	public SyncMcpToolCallbackProvider toolCallbackProvider(List<McpSyncClient> mcpSyncClients) {
-		return new SyncMcpToolCallbackProvider(mcpSyncClients);
-	}
+//	@Bean
+//	@Qualifier("my-mcp-server-callback-tool-provider")
+//	public SyncMcpToolCallbackProvider toolCallbackProvider(List<McpSyncClient> mcpSyncClients) {
+//		return new SyncMcpToolCallbackProvider(mcpSyncClients);
+//	}
 }

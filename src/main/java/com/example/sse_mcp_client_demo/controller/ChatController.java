@@ -19,8 +19,12 @@ public class ChatController {
         this.aiService = aiService;
     }
 
-
-
+    /**
+     * chatting message
+     * @param message
+     * @param model
+     * @return
+     */
     @PostMapping("/chat/message")
     public String sendMessage(@RequestParam("message") String message, Model model) {
         String response = aiService.complete(message);
