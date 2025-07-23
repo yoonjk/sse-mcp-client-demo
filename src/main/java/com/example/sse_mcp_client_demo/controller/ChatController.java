@@ -10,13 +10,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
-@RestController
+@Controller
 public class ChatController {
 
     private final AiService aiService;
 
     public ChatController(AiService aiService) {
         this.aiService = aiService;
+    }
+
+
+    @GetMapping("/")
+    public String index() {
+        return "chat";
     }
 
     /**
@@ -27,8 +33,11 @@ public class ChatController {
      */
     @PostMapping("/chat/message")
     public String sendMessage(@RequestParam("message") String message, Model model) {
+        log.info("chat message:{}", message);
         String response = aiService.complete(message);
 
-        return response;
+        model.addAttribute("userMessage", message);
+        model.addAttribute("aiResponse", response);
+        return "chat-message :: messageFragment";
     }
 }
